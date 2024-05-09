@@ -1,0 +1,63 @@
+* {
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    scrollbar-width: 0;
+}
+
+
+#lookup-box{
+
+    background: #f0f8ff;
+    padding: 5px;
+}
+
+#datasquare-list {
+
+    border: 2px solid black;
+    overflow-y: scroll;
+    max-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+.datasquare {
+
+    height: 20px;
+    padding: 5px;
+    margin: 5px;
+    cursor: default;
+}
+
+.datasquare:hover {
+
+    animation: growButton .4s alternate infinite;
+}
+
+
+#success-notice-bar {
+
+    background: red;
+    width: 50%;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    margin: 10px auto;
+    position: absolute;
+    top: 1%;
+    left: 40%;
+}
+
+
+h1 {
+
+    font-size: 22px;
+}
+
+
+@keyframes growButton {
+    100% {
+
+        background: #dbeeff;
+    }
+}
