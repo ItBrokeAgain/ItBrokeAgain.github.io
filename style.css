@@ -1,9 +1,9 @@
 * {
 
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
-    font-size: 14px;
-    scrollbar-width: 0;
+    font-size: 18px;
+    overflow: hidden;
 }
 
 
@@ -15,23 +15,27 @@
 
 #datasquare-list {
 
-    border: 2px solid black;
+    border: 2px dashed black;
+    background: #d8edff;
     overflow-y: scroll;
-    max-height: 100vh;
+    margin: 5px;
+    max-height: 80vh;
     scroll-behavior: smooth;
 }
 
 .datasquare {
 
     height: 20px;
-    padding: 5px;
-    margin: 5px;
+    padding: 10px;
     cursor: default;
+    font-weight: normal;
+    border-bottom: 1px inset aliceblue;
 }
 
 .datasquare:hover {
 
     animation: growButton .4s alternate infinite;
+    font-weight: bolder;
 }
 
 
@@ -44,20 +48,31 @@
     text-align: center;
     margin: 10px auto;
     position: absolute;
-    top: 1%;
+    top: 3%;
     left: 40%;
 }
 
 
 h1 {
 
-    font-size: 22px;
+    font-size: 24px;
+    background: #1f1f1f;
+    color: white;
+    padding: 15px;
 }
 
+
+.copywrite {
+
+    font-size: 12px;
+    text-align: center;
+    margin: 20px;
+}
 
 @keyframes growButton {
     100% {
 
-        background: #dbeeff;
+        background: #f3f9ff;
     }
 }
+

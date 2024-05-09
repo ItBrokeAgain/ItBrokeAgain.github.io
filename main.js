@@ -32,7 +32,7 @@ let app = Vue.createApp({
 app.component('lookup-box', {
 
     template: `<div id='lookup-box'>
-                    <h1>Easy Parts Paste</h1>
+                    <h1>Parts Copy App</h1>
                     <div id='menu-bar'>
 
                     </div>
