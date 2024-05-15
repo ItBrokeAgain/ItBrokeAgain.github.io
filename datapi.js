@@ -116,7 +116,7 @@ class Dapi {
         },
         {
             title: 'Mudflap (White TLG 24x24)',
-            copydata: '12424-TLGW2'
+            copydata: '112424-TLGW2'
         },
         {
             title: 'Mudflap Mounting Hardware',
@@ -144,15 +144,15 @@ class Dapi {
         },
         {
             title: 'Loctite 609',
-            copydata: '3823718PTX'
+            copydata: '135512'
         },
         {
-            title: 'Loctite 242',
+            title: 'Loctite (Blue)',
             copydata: '24200PTX'
         },
         {
-            title: 'Loctite 620',
-            copydata: '64000PTX'
+            title: 'Loctite (Red)',
+            copydata: '27100PTX'
         },
         {
             title: 'Mudflap (White TLG 36x24)',
@@ -224,7 +224,7 @@ class Dapi {
         },
         {
             title: '[PAC] Fuel Filter Set',
-            copydata: '227296PE'
+            copydata: '2272926PE'
         },
         {
             title: '[PAC] Gasket 4" (Skinny)',
