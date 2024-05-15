@@ -1,5 +1,7 @@
 class Dapi {
 
+    SEARCH_MODE =  false;
+
     constructor () {
 
         console.log("DAPI loaded.")
@@ -158,6 +160,42 @@ class Dapi {
             title: 'Mudflap (White TLG 36x24)',
             copydata: '112430-TLGW2'
         },
+        {
+            title: 'Power Steering Fluid',
+            copydata: 'KE4610'
+        },
+        {
+            title: 'Heet (12oz)',
+            copydata: '28201'
+        },
+        {
+            title: 'Air Brake Conditioner',
+            copydata: '90157'
+        },
+        {
+            title: 'Solvent-Based Flush',
+            copydata: 'VA11650'
+        },
+        {
+            title: 'Hub Oil (32oz)',
+            copydata: '10088LUC'
+        },
+        {
+            title: 'Starting Fluid',
+            copydata: '6752'
+        },
+        {
+            title: 'White Lithium Grease',
+            copydata: 'WG16'
+        },
+        {
+            title: 'Battery Cleaner',
+            copydata: 'KE05023'
+        },
+        {
+            title: 'Windshield Wash (Green)',
+            copydata: 'TWS0019'
+        },
     ]
 
     LoadParts() {
@@ -167,5 +205,21 @@ class Dapi {
             if(x.title[0] < y.title[0]) return -1;
             else return 0;
         });
+    }
+
+
+
+    SearchForPart(phrase) {
+
+
+        if(phrase == undefined) return this.LoadParts();
+        let arr = [];
+
+        this.parts.forEach((el, i) => {
+
+            if(`${el.title}`.toUpperCase().includes(`${phrase}`.toUpperCase())) arr.push(el);
+        })
+
+        return arr;
     }
 }
