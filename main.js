@@ -4,28 +4,34 @@ let app = Vue.createApp({
 
     data: function() { return { 
 
+        // Idk why I always do this
         name: 'app', 
+        // Notification state management bool
         isNotifying: false,
+        // Data-API class.
         dapi: new Dapi(),
+        // The Current (not the entire database hopefully) List of Parts based on the search criteria
         activeList: []
 
     } },
     methods: {
 
+        // Bring up notification
         Notify() {
 
             this.isNotifying = true;
 
+            // Make notification go away.
             setTimeout(() => {
                 
                 this.isNotifying = false;
             }, 1000);
         },
+        // Search by name in DAPI
         Search(e) {
 
             this.activeList = this.dapi.SearchForPart(e); return this.activeList;
         },
-        Load() { this.activeList = this.dapi.LoadParts();  return this.activeList; }
     },
 })
 
@@ -33,11 +39,11 @@ let app = Vue.createApp({
 
 
 
-// List and Search
+// List and Search --- Holds all of the databoxes with the part numbers. Also holds the searchbar and transmits a function for it (FINALLY)
 
 app.component('lookup-box', {
 
-    template: `<div id='lookup-box' :onload='LoadList()'>
+    template: `<div id='lookup-box' :onload='SearchList()'>
                     <div id='menu-bar'>
                         <searchbar @search-list='(i) => { this.arr = this.$root.Search(i);}'></searchbar>
                     </div>
@@ -48,15 +54,12 @@ app.component('lookup-box', {
                 ,
     data: function() { return {  
 
+        // Search By default is all the parts
         arr: this.$root.Search(),
     }},
     methods: {
 
-        LoadList() {
-
-            this.$root.Search();
-            arr = this.$root.activeList;
-        },
+        // Load the list based on the text in the searchbar
         SearchList(input) {
 
             this.$root.Search(input);
@@ -69,8 +72,7 @@ app.component('lookup-box', {
 
 
 
-
-// DataSquare 
+// DataSquare  --- Is a box with the part name in it, once clicked the part number of said named part will be copied to the clipboard of the user ready to paste.
 
 app.component('datasquare', {
 
@@ -90,7 +92,7 @@ app.component('datasquare', {
 
 
 
-// Copy Confirmation 
+// Copy Confirmation --- Little notification that lets the user know that the part number has been copied.
 
 app.component('success-notice-bar', {
 
@@ -100,11 +102,13 @@ app.component('success-notice-bar', {
 
 
 
-// Part Search Bar
+
+// Part Search Bar --- Pain in my fucking ass, lets the user input text and narrow down the parts list based on what they write.
+
 app.component('searchbar', {
 
     template: `<div id='searchbar'>
-                <input placeholder="What do you need?" v-model='searchPhrase' @keyup='Search()'></input>
+                <input placeholder="Which Part?" v-model='searchPhrase' @keyup='Search()'></input>
             </div>`,
     data: function() { return {
 
@@ -122,6 +126,8 @@ app.component('searchbar', {
 
 
 
-// Mount
+
+
+// Mount --- Moment of truth.
 
 app.mount('main');

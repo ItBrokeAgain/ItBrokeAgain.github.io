@@ -1,7 +1,5 @@
 class Dapi {
 
-    SEARCH_MODE =  false;
-
     constructor () {
 
         console.log("DAPI loaded.")
@@ -57,7 +55,7 @@ class Dapi {
             copydata: '1982821PE'
         },
         {
-            title: 'Coolant Filter',
+            title: '[PAC] Coolant Filter',
             copydata: '1843659PE'
         },
         {
@@ -196,7 +194,87 @@ class Dapi {
             title: 'Windshield Wash (Green)',
             copydata: 'TWS0019'
         },
+        {
+            title: 'Roloc Disc 2"',
+            copydata: '07480MMM'
+        },
+        {
+            title: 'Roloc Disc 3"',
+            copydata: '07485MMM'
+        },
+        {
+            title: 'Scotchbrite Pad',
+            copydata: '07447MMM'
+        },
+        {
+            title: 'Roloc Grinding Disc 2"',
+            copydata: '01396MMM'
+        },
+        {
+            title: 'Roloc Conditioning Disc 4"',
+            copydata: '07482MMM'
+        },
+        {
+            title: 'Roloc Grinding Disc 3"',
+            copydata: '01406MMM'
+        },
+        {
+            title: '[PAC] Oil Filter (Centrifugal)',
+            copydata: '1922496PE'
+        },
+        {
+            title: '[PAC] Fuel Filter Set',
+            copydata: '227296PE'
+        },
+        {
+            title: '[PAC] Gasket 4" (Skinny)',
+            copydata: '1844896PE'
+        },
+        {
+            title: '[PAC] Gasket 5" (Skinny)',
+            copydata: '1844253PE'
+        },
+        {
+            title: '[PAC] Gasket 5" (Fat)',
+            copydata: '1827320PE'
+        },
+        {
+            title: '[CUM] Gasket 4" (Skinny)',
+            copydata: '3684359CUM'
+        },
+        {
+            title: '[CUM] Gasket 4" (Fat)',
+            copydata: '2880214CUM'
+        },
+        {
+            title: '[CUM] Gasket 5" (Skinny)',
+            copydata: '2866636CUM'
+        },
+        {
+            title: '[CUM] Gasket 5" (Fat)',
+            copydata: '2880215CUM'
+        },
+        {
+            title: 'A/C Washer Seal #6',
+            copydata: '730392ATC'
+        },
+        {
+            title: 'A/C Washer Seal #8',
+            copydata: '730393ATC'
+        },
+        {
+            title: 'A/C Washer Seal #10',
+            copydata: '730394ATC'
+        },
+        {
+            title: 'A/C Washer Seal #12',
+            copydata: '730395ATC'
+        },
     ]
+
+
+
+
 
     LoadParts() {
 
@@ -206,6 +284,8 @@ class Dapi {
             else return 0;
         });
     }
+
+
 
 
 
