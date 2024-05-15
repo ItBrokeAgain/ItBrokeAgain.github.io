@@ -130,13 +130,42 @@ class Dapi {
             title: 'Battery (925 CCA)',
             copydata: 'BT31S93EXCH'
         },
-
-        
-
+        {
+            title: '#6 Hose Clamp',
+            copydata: '9206TRP'
+        },
+        {
+            title: '#8 Hose Clamp',
+            copydata: '9208TRP'
+        },
+        {
+            title: '#10 Hose Clamp',
+            copydata: '9210TRP'
+        },
+        {
+            title: 'Loctite 609',
+            copydata: '3823718PTX'
+        },
+        {
+            title: 'Loctite 242',
+            copydata: '24200PTX'
+        },
+        {
+            title: 'Loctite 620',
+            copydata: '64000PTX'
+        },
+        {
+            title: 'Mudflap (White TLG 36x24)',
+            copydata: '112430-TLGW2'
+        },
     ]
 
     LoadParts() {
 
-        return this.parts;
+        return this.parts.sort((x, y) => {
+
+            if(x.title[0] < y.title[0]) return -1;
+            else return 0;
+        });
     }
 }
