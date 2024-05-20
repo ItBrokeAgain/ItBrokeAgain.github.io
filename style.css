@@ -75,10 +75,41 @@ h1 {
     text-align: center;
 }
 
+#mode-toggle {
+
+    position: absolute;
+    background-color: aliceblue;
+    border: 5px inset black;
+    padding: 0 10px;
+    right: 0;
+    margin: 5%;
+}
+
+#user-icon {
+
+    position: absolute;
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 50px;
+    border: 5px black inset;
+    margin: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+#mode-toggle:hover  {
+
+    background-color: #2f2f2f;
+    color: aliceblue;
+    border: 5px aliceblue outset;
+}
+
+
 @keyframes growButton {
     100% {
 
         background: #f3f9ff;
+        padding: 10px 25px;
     }
 }
 

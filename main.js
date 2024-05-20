@@ -11,7 +11,9 @@ let app = Vue.createApp({
         // Data-API class.
         dapi: new Dapi(),
         // The Current (not the entire database hopefully) List of Parts based on the search criteria
-        activeList: []
+        activeList: [],
+        // Current Mode of the App
+        mode: 1
 
     } },
     methods: {
@@ -37,6 +39,43 @@ let app = Vue.createApp({
 
 
 
+
+app.component('parts-mode', {
+
+    template: `<div id='parts-mode' v-if='IsActiveMode'>
+                <h1>Parts Mode</h1>
+                <lookup-box></lookup-box>
+                <success-notice-bar></success-notice-bar>
+            </div>`,
+    computed: {
+        IsActiveMode() {
+            return this.$root.mode == 1;
+        }
+    }
+})
+
+
+
+app.component('service-mode', {
+
+    template: `<div id='service-mode' v-if='IsActiveMode'>
+                <h1>Service Mode</h1>
+            </div>`,
+    computed: {
+        IsActiveMode() {
+            return this.$root.mode == 0;
+        }
+    }
+})
+
+
+app.component('user-icon', {
+
+    template: `<img id='user-icon' src='./user-solid.svg'></img>`,
+    methods: {
+        
+    }
+})
 
 
 // List and Search --- Holds all of the databoxes with the part numbers. Also holds the searchbar and transmits a function for it (FINALLY)
@@ -125,6 +164,21 @@ app.component('searchbar', {
 })
 
 
+
+// Toggle between service and parts mode;
+app.component('mode-toggle', {
+
+    template: `<div id='mode-toggle' @click='ToggleMode()'>
+                    <h2>Toggle Mode</h2>
+                </div>`,
+    methods: {
+        ToggleMode() {
+            let m = this.$root.mode;
+            if(m == 1) this.$root.mode = 0;
+            else this.$root.mode = 1;
+        }
+    }
+})
 
 
 
