@@ -194,3 +194,17 @@ h1 {
     color: white;
     padding: 5px;
 }
+
+#warning-tag {
+
+    position: relative;
+    text-align: center;
+    animation: GlowRed .5s alternate infinite;
+}
+
+@keyframes GlowRed {
+    100% {
+        color: red;
+        font-size: large;
+    }
+}

@@ -77,6 +77,7 @@ app.component('service-mode', {
                 <h1>Service Mode</h1>
                 <h2 id='service-mode-app-title'>Decisiv Maker</h2>
                 <part-action-options></part-action-options>
+                <p id='warning-tag'>Work In Progress...</p>
             </div>`,
     computed: {
         IsActiveMode() {
