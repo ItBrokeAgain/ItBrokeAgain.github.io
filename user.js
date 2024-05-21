@@ -1,7 +1,7 @@
 class Role {
     _role;
     constructor(id) {
-        EvaluateTypeID(id);
+        this.EvaluateTypeID(id);
     }
 
     EvaluateTypeID = (typeID) => {
@@ -14,6 +14,9 @@ class Role {
     }
 
     GetRole = () => { return this._role; }
+
+    UpdateRole = (id) => { this.EvaluateTypeID(id) } 
+
 }
 
 class ServiceRole {
@@ -21,15 +24,14 @@ class ServiceRole {
     _ro = '';
     _bay = '';
     _story = '';
-    constructor(ro, bay, story) {
-        this._ro = ro;
-        this._bay = bay;
-        this._story = story;
+    constructor() {
+
     }
 
     EditInfo = (info, value) => {
 
         this[info] = value;
+        console.log("Edit: "+ this[info]);
     }
 
     GetInfo = (info) => {
@@ -52,5 +54,20 @@ class User {
 
         this._name = name;
         this._role = new Role(roleID);
+    }
+
+
+    GetName = () => { return this._name }
+
+    GetRole = () => { return this._role }
+
+    GetRoleType = () => { return this._role.GetRole(); }
+
+    GetRO = () => { 
+        return this.GetRoleType().GetInfo('_ro') 
+    }
+
+    GetBay = () => {
+        return this.GetRoleType().GetInfo("_bay")
     }
 }

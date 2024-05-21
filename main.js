@@ -13,7 +13,9 @@ let app = Vue.createApp({
         // The Current (not the entire database hopefully) List of Parts based on the search criteria
         activeList: [],
         // Current Mode of the App
-        mode: 1
+        mode: 1,
+        // Current User
+        currentUser: new User('default', 1)
 
     } },
     methods: {
@@ -34,6 +36,19 @@ let app = Vue.createApp({
 
             this.activeList = this.dapi.SearchForPart(e); return this.activeList;
         },
+        ToggleMode() { 
+            this.mode = !this.mode;
+            this.currentUser.GetRole().UpdateRole(this.mode - 0);
+        },
+        UpdateUserInfo(i, dat) {
+
+            this.currentUser.GetRoleType().EditInfo(i, dat);
+            return 0;
+        },
+        GetUserInfo(i) {
+
+            return this.currentUser.GetRoleType().GetInfo(i);
+        }
     },
 })
 
@@ -60,6 +75,8 @@ app.component('service-mode', {
 
     template: `<div id='service-mode' v-if='IsActiveMode'>
                 <h1>Service Mode</h1>
+                <h2 id='service-mode-app-title'>Decisiv Maker</h2>
+                <part-action-options></part-action-options>
             </div>`,
     computed: {
         IsActiveMode() {
@@ -69,11 +86,69 @@ app.component('service-mode', {
 })
 
 
+app.component('part-action-options', {
+
+    template: `<div id='part-action-options'>
+                <button class='part-action-button'>Delivery</button>
+                <button class='part-action-button'>Quote</button>
+            </div>`
+})
+
 app.component('user-icon', {
 
-    template: `<img id='user-icon' src='./user-solid.svg'></img>`,
+    template: `<div>
+                    <img id='user-icon' @click='ShowUserInfo' src='./user-solid.svg' />
+                    <div id='user-info-tab' v-if='infoTabShowing'>
+                        <h2>User Profile</h2>
+                        <hr>
+                        <p>User: {{GetName}}</p>
+                        <div class='parts-user-info' v-if='GetMode'>
+                            <p>---Partsperson---</p>
+                        </div>
+                        <div class='service-user-info' v-if='!GetMode'>
+                            <div class='info-box'>
+                                <p>RO: {{this.$root.currentUser.GetRO()}}</p>
+                                <input type='text' v-model='currentEditText' v-if='this.activeField == 0' class='user-option-input'>
+                                <img class='edit-button' @click='EditField(0)' src='./pencil-solid.svg'/>
+                            </div>
+                            <div class='info-box'>
+                                <p>Bay: {{this.$root.currentUser.GetBay()}}</p>
+                                <input type='text' v-model='currentEditText' v-if='this.activeField == 1' class='user-option-input'>
+                                <img class='edit-button' @click='EditField(1)' src='./pencil-solid.svg'/>
+                            </div>
+                        </div>
+                    </div>
+                </div>`,
+    data: () => { return { 
+        infoTabShowing: false,
+        activeField: -1,
+        currentEditText: '',
+        infoLabels: ['_ro', '_bay'],
+    }} ,
     methods: {
+        ShowUserInfo() {
+            this.infoTabShowing = !this.infoTabShowing;
+        },
+        EditField(i) {
+            
+            if(this.activeField == i) { this.UpdateInfo(i); this.activeField = -1; this.currentEditText = ''; }
+            else this.activeField = i;  
+        },
+        UpdateInfo(i) {
+
+            this.$root.UpdateUserInfo(this.infoLabels[i], this.currentEditText)
+        }
+    },
+    computed: {
         
+        GetMode() {
+
+            return this.$root.mode == 1
+        },
+        GetName() {
+
+            return this.$root.currentUser.GetName();
+        },
     }
 })
 
@@ -173,9 +248,7 @@ app.component('mode-toggle', {
                 </div>`,
     methods: {
         ToggleMode() {
-            let m = this.$root.mode;
-            if(m == 1) this.$root.mode = 0;
-            else this.$root.mode = 1;
+            this.$root.ToggleMode();
         }
     }
 })

@@ -6,6 +6,21 @@
     overflow: hidden;
 }
 
+html, body, main {
+
+    min-height: 100vh;
+}
+
+h1, h2 {
+
+    text-align: center;
+}
+main {
+
+    width: 70%;
+    margin: auto;
+}
+
 
 #lookup-box{
 
@@ -113,3 +128,69 @@ h1 {
     }
 }
 
+
+
+#user-info-tab {
+
+    position: absolute;
+    margin: 60px;
+    padding: 10px;
+    width: 275px;
+    background-color: aliceblue;
+    border: black outset 3px;
+}
+
+.info-box {
+
+    display: flex;
+    align-items: center;
+}
+
+.info-box img {
+
+    position: absolute;
+    right: 10px;
+    padding: 10px;
+}
+
+.info-box input {
+    
+    margin: 5px;
+}
+
+.edit-button {
+
+    width: 15px;
+}
+
+#part-action-options {
+
+    display: flex;
+    justify-content: center;
+}
+
+.part-action-button {
+
+    width: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    background: #dfdfdf;
+    color: #1f1f1f;
+}
+
+.part-action-button:hover {
+    background: #9f9f9f;
+    color: white;
+}
+
+#service-mode-app-title {
+
+    background: #1f1f1f;
+    width: 90%;
+    margin: auto;
+    margin-top: 10%;
+    color: white;
+    padding: 5px;
+}
