@@ -163,6 +163,7 @@ app.component('lookup-box', {
                         <searchbar @search-list='(i) => { this.arr = this.$root.Search(i);}'></searchbar>
                     </div>
                     <div id='datasquare-list'>
+                    <p id='part-search-list-instruction'>Click the part you need to copy the part number.</p>
                         <datasquare v-for='(part, i) in arr' :title="arr[i].title" :copydata="arr[i].copydata"></datasquare>
                     </div>
                 </div>`
@@ -223,7 +224,7 @@ app.component('success-notice-bar', {
 app.component('searchbar', {
 
     template: `<div id='searchbar'>
-                <input placeholder="Which Part?" v-model='searchPhrase' @keyup='Search()'></input>
+                <input placeholder="Search for parts..." v-model='searchPhrase' @keyup='Search()'></input>
             </div>`,
     data: function() { return {
 
