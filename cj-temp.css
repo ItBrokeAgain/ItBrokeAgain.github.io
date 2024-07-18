@@ -1,0 +1,156 @@
+* {
+
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main {
+
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+}
+
+
+
+.segment {
+
+    height: 65vh;
+    width: 100vw;
+}
+
+.segment:nth-child(even) {
+
+    background: #dfdfdf;
+}
+
+
+
+#hero {
+
+    display: grid;
+    grid-template-areas:
+    'header'
+    'hero';
+    grid-template-rows: 1fr 4fr;
+    background: green;
+}
+
+.header {
+
+    grid-area: header;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+}
+
+.hero { 
+
+    grid-area: hero;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CTA {
+
+    background: white;
+    border: none;
+    padding: 1em 2em;
+    font-weight: bold;
+    color: black;
+    font-size: large;
+    text-decoration: none;
+}
+
+nav {
+
+    width: 100%;
+}
+
+nav ul {
+
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+li {
+
+    list-style: none;
+    padding: 3%;
+}
+
+h1 {
+
+    padding: 3%;
+}
+
+.title {
+    
+    text-align: center;
+}
+
+.infotext {
+
+    width: 80%;
+    margin:auto;
+    text-align: center;
+    justify-content: center;
+}
+
+#about {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-grid {
+
+    display: grid;
+    height: 80%;
+    max-width: 70vw;
+    margin: auto;
+    grid-template-columns: repeat(2, .8fr);
+}
+
+.service-grid > div {
+
+    background: #afafaf;
+    margin: 5% 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
+    box-shadow: darkslategray 1px 1px;
+}
+
+.contact-form {
+
+    background: white;
+    max-width: fit-content;
+    margin: auto;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contact-form input {
+
+    padding: .25rem;
+    margin: 1rem;
+    margin-left: 2rem;
+    text-align: left;
+}
+
+.CTA-g {
+
+    background: rgb(69, 226, 153);
+    box-shadow: rgb(40, 172, 110) 2px 2px;
+
+}
